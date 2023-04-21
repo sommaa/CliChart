@@ -50,8 +50,8 @@
 
 # :notebook: Documentation
 
+### Options:
 ```
- options:
   -h, --help            show this help message and exit
   -c COIN, --coin COIN  coin to display (example: bitcoin)
   -b BASE, --base BASE  base currency (example: usd)
@@ -59,8 +59,20 @@
   -x HLIM, --hlim HLIM  height of the terminal box
   -y VLIM, --vlim VLIM  width of the terminal box
 ```
-Example:
+### Example:
 
 ```bash
 ./CliChart -d 14 -c "bitcoin" -b "usd" -y 25 -x 40
+```
+
+### Installation:
+
+- Clone CliChart repository:
+```bash
+  git clone https://github.com/sommaa/CliChart.git
+```
+
+- Add this line to your .bashrc or .zshrc file to export the path:
+```bash
+  export PATH=$PATH:/where/you/saved/the/file/CliChart
 ```
