@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+from util import findBox, parseArguments, numberMatrix, printLines
+from query import get_prices
+
+# parse arguments
+args = parseArguments()
+# req market data
+timec, openc, highc, lowc, closec = get_prices(format(str(args["coin"])),
+                                               format(str(args["base"])),
+                                               format(int(args["days"])))
+# prep data
+candlesJump, priceJump, tSpan, yMax, yMin, tJump, candlesSkip = findBox(highc,
+                                                                        lowc, timec,
+                                                                        args["hlim"],
+                                                                        args["vlim"])
+# number matrix
+numberMatrix = numberMatrix(openc, highc, lowc, closec, candlesJump,
+                            priceJump, yMax, candlesSkip, args["hlim"],
+                            args["vlim"])
+# printing Lines
+printLines(numberMatrix, args['hlim'], args['vlim'],
+           priceJump, yMax, format(str(args["coin"])),
+           tJump, candlesJump, closec[len(closec) - 1],
+           format(str(args["base"])))
