@@ -10,7 +10,7 @@ def parseArguments():
     ap.add_argument("-b", "--base", required=True,
                     help="base currency (example: usd)")
     ap.add_argument("-d", "--days", required=True,
-                    help="days ago (inputs: 1/7/14/30/90/180/365/max)")
+                    help="days ago (inputs: 1/7/14/30/90/180/365)")
     ap.add_argument("-x", "--hlim", required=False,
                     help="height of the terminal box", default=60, type=int)
     ap.add_argument("-y", "--vlim", required=False,
