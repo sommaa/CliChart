@@ -64,7 +64,7 @@
 ### Example:
 
 ```bash
-./CliChart -d 14 -c "bitcoin" -b "usd" -y 25 -x 40
+CliChart -d 14 -c "bitcoin" -b "usd" -y 25 -x 40
 ```
 
 ### Installation:
