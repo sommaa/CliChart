@@ -28,9 +28,10 @@ def findBox(highc, lowc, timec, hlim, vlim):
     priceSpan = yMax - yMin
 
     candlesJump = len(timec)//hlim
-    if candlesJump < 1:
-        maxWidth = len(timec) - 2
+    if (((len(timec) - 1)//hlim)) < 1:
+        maxWidth = len(timec) - 1
         print(f"maximum width is {maxWidth} due to coinGecko data sizing")
+        print(f"add or modify -x or --hlim value to {maxWidth}")
         exit()
 
     candlesSkip = len(timec) - (hlim*candlesJump) - 1
@@ -48,9 +49,9 @@ def numberMatrix(openc, highc, lowc, closec, candlesJump, priceJump,
         openCandle = openc[i*candlesJump + candlesSkip]
         closeCandle = closec[(i+1)*candlesJump - 1 + candlesSkip]
         lowCandle = min(lowc[(i*candlesJump + candlesSkip)
-                        :((i+1)*candlesJump - 1 + candlesSkip)])
-        highCandle = max(highc[(i*candlesJump + candlesSkip)
-                         :((i+1)*candlesJump - 1 + candlesSkip)])
+                        :((i+1)*candlesJump + candlesSkip)])
+        highCandle = max(highc[(i*candlesJump + candlesSkip):
+                               ((i+1)*candlesJump + candlesSkip)])
 
         for j in range(vlim):
             rangeDown = yMax - (j+1)*priceJump
@@ -96,8 +97,8 @@ def printLines(numberMatrix, hlim, vlim, priceJump, yMax, currency, tJump, candl
         formatTime = formatTime/(3600*24*30)
         formatTime = str(round(formatTime, 2)) + "months"
 
-    headerStr = "\033[36m■\033[0m " + currency.capitalize() + " Chart   \033[36m■\033[0m Time Format: " + formatTime + \
-        "   \033[36m■\033[0m Actual Price: " + \
+    headerStr = "\033[34m■\033[0m \033[01m" + currency.capitalize() + " Chart   \033[35m■\033[0m \033[01m Time Format: " + formatTime + \
+        "   \033[36m■\033[0m \033[01m Actual Price: " + \
         str(round(actualPrice, 2)) + baseCurrency
     print(" \n")
     print("          " + headerStr)
