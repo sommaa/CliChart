@@ -78,3 +78,8 @@ CliChart -d 14 -c "bitcoin" -b "usd" -y 25 -x 40
 ```bash
   export PATH=$PATH:/where/you/saved/the/file/CliChart
 ```
+
+  - Install python dependencies
+```bash
+  pip install json argparse requests numpy
+```
