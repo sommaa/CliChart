@@ -81,5 +81,5 @@ CliChart -d 14 -c "bitcoin" -b "usd" -y 25 -x 40
 
   - Install python dependencies
 ```bash
-  pip install json argparse requests numpy
+  pip install -r dependencies.txt
 ```
