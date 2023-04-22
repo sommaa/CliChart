@@ -33,7 +33,7 @@ def findBox(highc, lowc, timec, hlim, vlim):
         print(f"maximum width is {maxWidth} due to coinGecko data sizing")
         exit()
 
-    candlesSkip = len(timec) - (hlim*candlesJump) - 2
+    candlesSkip = len(timec) - (hlim*candlesJump) - 1
     priceJump = float(priceSpan)/vlim
     return candlesJump, priceJump, tSpan, yMax, yMin, tJump, candlesSkip
 
@@ -46,11 +46,11 @@ def numberMatrix(openc, highc, lowc, closec, candlesJump, priceJump,
 
     for i in range(hlim):
         openCandle = openc[i*candlesJump + candlesSkip]
-        closeCandle = closec[i*candlesJump + 2 + candlesSkip]
+        closeCandle = closec[(i+1)*candlesJump - 1 + candlesSkip]
         lowCandle = min(lowc[(i*candlesJump + candlesSkip)
-                        :(i*candlesJump + 2 + candlesSkip)])
+                        :((i+1)*candlesJump - 1 + candlesSkip)])
         highCandle = max(highc[(i*candlesJump + candlesSkip)
-                         :(i*candlesJump + 2 + candlesSkip)])
+                         :((i+1)*candlesJump - 1 + candlesSkip)])
 
         for j in range(vlim):
             rangeDown = yMax - (j+1)*priceJump
@@ -83,16 +83,16 @@ def printLines(numberMatrix, hlim, vlim, priceJump, yMax, currency, tJump, candl
     formatTime = float(tJump)/1000*candlesJump
     if formatTime < 60:
         formatTime = str(round(formatTime, 2)) + "s"
-    elif formatTime > 60 and formatTime < 3600:
+    elif formatTime >= 60 and formatTime < 3600:
         formatTime = formatTime/60
         formatTime = str(round(formatTime, 2)) + "min"
-    elif formatTime > 3600 and formatTime < 3600*24:
+    elif formatTime >= 3600 and formatTime < 3600*24:
         formatTime = formatTime/3600
         formatTime = str(round(formatTime, 2)) + "hours"
-    elif formatTime > 3600*24 and formatTime < 3600*24*30:
+    elif formatTime >= 3600*24 and formatTime < 3600*24*30:
         formatTime = formatTime/(3600*24)
         formatTime = str(round(formatTime, 2)) + "days"
-    elif formatTime > 3600*24*30:
+    elif formatTime >= 3600*24*30:
         formatTime = formatTime/(3600*24*30)
         formatTime = str(round(formatTime, 2)) + "months"
 
