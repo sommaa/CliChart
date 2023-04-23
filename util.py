@@ -30,12 +30,13 @@ def findBox(highc, lowc, timec, hlim, vlim):
     candlesJump = len(timec)//hlim
     if (((len(timec) - 1)//hlim)) < 1:
         maxWidth = len(timec) - 1
-        print(f"maximum width is {maxWidth} due to coinGecko data sizing")
+        print(f"maximum width is {maxWidth} due to APIs data sizing")
         print(f"add or modify -x or --hlim value to {maxWidth}")
         exit()
 
-    candlesSkip = len(timec) - (hlim*candlesJump) - 1
+    candlesSkip = len(timec) - (hlim*candlesJump)
     priceJump = float(priceSpan)/vlim
+    print(candlesSkip)
     return candlesJump, priceJump, tSpan, yMax, yMin, tJump, candlesSkip
 
 
@@ -83,23 +84,23 @@ def numberMatrix(openc, highc, lowc, closec, candlesJump, priceJump,
 def printLines(numberMatrix, hlim, vlim, priceJump, yMax, currency, tJump, candlesJump, actualPrice, baseCurrency):
     formatTime = float(tJump)/1000*candlesJump
     if formatTime < 60:
-        formatTime = str(round(formatTime, 2)) + "s"
+        formatTime = str(round(formatTime, 2)) + " s"
     elif formatTime >= 60 and formatTime < 3600:
         formatTime = formatTime/60
-        formatTime = str(round(formatTime, 2)) + "min"
+        formatTime = str(round(formatTime, 2)) + " min"
     elif formatTime >= 3600 and formatTime < 3600*24:
         formatTime = formatTime/3600
-        formatTime = str(round(formatTime, 2)) + "hours"
+        formatTime = str(round(formatTime, 2)) + " hours"
     elif formatTime >= 3600*24 and formatTime < 3600*24*30:
         formatTime = formatTime/(3600*24)
-        formatTime = str(round(formatTime, 2)) + "days"
+        formatTime = str(round(formatTime, 2)) + " days"
     elif formatTime >= 3600*24*30:
         formatTime = formatTime/(3600*24*30)
-        formatTime = str(round(formatTime, 2)) + "months"
+        formatTime = str(round(formatTime, 2)) + " months"
 
     headerStr = "\033[34m■\033[0m \033[01m" + currency.capitalize() + " Chart   \033[35m■\033[0m \033[01m Time Format: " + formatTime + \
         "   \033[36m■\033[0m \033[01m Actual Price: " + \
-        str(round(actualPrice, 2)) + baseCurrency
+        str(round(actualPrice, 2)) + " " + baseCurrency
     print(" \n")
     print("          " + headerStr)
     print('\033[0m' + " ")
