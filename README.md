@@ -44,7 +44,7 @@
 
 # :stars: Features
 
-- Price data directly from [CoinGecko APIs](https://www.coingecko.com/en/api/documentation)
+- Price data directly from [CoinGecko APIs](https://www.coingecko.com/en/api/documentation) and [Polygon.io](https://polygon.io)
 - Easily resizable
 - Customizable timeframe
 - Adapts to your shell theme
