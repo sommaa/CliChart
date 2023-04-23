@@ -20,7 +20,7 @@
     <img src="https://user-images.githubusercontent.com/120776791/233723970-f3269bcd-6c67-4a74-a397-d368a025f575.png" alt="Logo" width="300" height="55">
   </a>
 
-  <h3 align="center">A terminal based python script to display crypto price trends</h3>
+  <h3 align="center">A terminal based python script to display crypto,stocks,forex,options... price trends</h3>
   <p align="center">
     <a href="https://github.com/sommaa/CliChart/issues">Report Bug</a>
     ·
@@ -44,10 +44,11 @@
 
 # :stars: Features
 
-- Price data directly from [CoinGecko APIs](https://www.coingecko.com/en/api/documentation)
+- Price data directly from [CoinGecko APIs](https://www.coingecko.com/en/api/documentation) and [Polygon.io](https://polygon.io)
 - Easily resizable
 - Customizable timeframe
 - Adapts to your shell theme
+- Automatically switch between asset types
 - Actual price
 
 # :notebook: Documentation
@@ -83,3 +84,6 @@ CliChart -d 14 -c "bitcoin" -b "usd" -y 25 -x 40
 ```bash
   pip install -r dependencies.txt
 ```
+  - Optional:
+    To support stocks/forex/options/indices:
+    - Create a APIKEY token at [Polygon.io](https://polygon.io/stocks) and insert it at line 6 of [CliChart](./CliChart)
