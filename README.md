@@ -20,7 +20,7 @@
     <img src="https://user-images.githubusercontent.com/120776791/233723970-f3269bcd-6c67-4a74-a397-d368a025f575.png" alt="Logo" width="300" height="55">
   </a>
 
-  <h3 align="center">A terminal based python script to display crypto,stocks,forex,options... price trends</h3>
+  <h4 align="center">A terminal based python script to display crypto, stocks, forex, options... price trends</h4>
   <p align="center">
     <a href="https://github.com/sommaa/CliChart/issues">Report Bug</a>
     ·
