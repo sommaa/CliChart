@@ -39,6 +39,8 @@
 # :money_mouth_face: Showcase
 
 ![2023-04-21_22-00](https://user-images.githubusercontent.com/120776791/233724896-058b3485-4d35-4274-8fee-4f82a169c784.png)
+![image](https://user-images.githubusercontent.com/120776791/233778492-2f3781c9-1a2c-45f7-8e62-5acf98307843.png)
+
 
 # :stars: Features
 
@@ -62,7 +64,7 @@
 ### Example:
 
 ```bash
-./CliChart -d 14 -c "bitcoin" -b "usd" -y 25 -x 40
+CliChart -d 14 -c "bitcoin" -b "usd" -y 25 -x 40
 ```
 
 ### Installation:
@@ -75,4 +77,9 @@
 - Add this line to your .bashrc or .zshrc file to export the path:
 ```bash
   export PATH=$PATH:/where/you/saved/the/file/CliChart
+```
+
+  - Install python dependencies
+```bash
+  pip install -r dependencies.txt
 ```
