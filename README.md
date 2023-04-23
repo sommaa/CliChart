@@ -86,4 +86,4 @@ CliChart -d 14 -c "bitcoin" -b "usd" -y 25 -x 40
 ```
   - Optional:
     To support stocks/forex/options/indices:
-    - Create a APIKEY token at [Polygon.io](https://polygon.io/stocks) and insert it at line 6 of [CliChart](./Clichart)
+    - Create a APIKEY token at [Polygon.io](https://polygon.io/stocks) and insert it at line 6 of [CliChart](./CliChart)
