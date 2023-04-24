@@ -36,7 +36,6 @@ def findBox(highc, lowc, timec, hlim, vlim):
 
     candlesSkip = len(timec) - (hlim*candlesJump)
     priceJump = float(priceSpan)/vlim
-    print(candlesSkip)
     return candlesJump, priceJump, tSpan, yMax, yMin, tJump, candlesSkip
 
 
